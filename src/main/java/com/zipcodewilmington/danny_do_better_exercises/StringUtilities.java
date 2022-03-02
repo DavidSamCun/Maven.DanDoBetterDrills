@@ -34,15 +34,15 @@ public class StringUtilities {
      * @return the first 3 characters of `input`
      */
     public static String getPrefix(String input){
-        return input.substring(0,2);
-    }
+        return input.substring(0,3);
+    } //Ends at 2
 
     /**
      * @param input a string to be manipulated
      * @return the last 3 characters of `input`
      */
     public static String getSuffix(String input){
-        return input.substring(input.length() - 4, input.length() -1);
+        return input.substring(input.length() - 3, input.length());
     }
 
     /**
@@ -59,7 +59,9 @@ public class StringUtilities {
      * @return the middle character of `inputValue`
      */
     public static Character getMiddleCharacter(String inputValue){
-        return null; //inputValue.getChars((inputValue.length()/2.0)));
+        //int length = Math.round(inputValue.length() - 1) / 2;
+        //char output = inputValue.charAt(length);
+        return inputValue.charAt((inputValue.length() - 1)/2);
     }
 
     /**
@@ -67,7 +69,13 @@ public class StringUtilities {
      * @return the first sequence of characters
      */
     public static String getFirstWord(String spaceDelimitedString){
-        return null;
+
+        String[] wordarray = spaceDelimitedString.split(" ");   //split words
+        int index = wordarray.length;
+        String output = wordarray[0];
+        System.out.println(output);
+        return output;
+
     }
 
     /**
@@ -75,7 +83,12 @@ public class StringUtilities {
      * @return the second word of a string delimited by spaces.
      */
     public static String getSecondWord(String spaceDelimitedString){
-        return null;
+        String[] wordarray = spaceDelimitedString.split(" ");   //split words
+        int index = wordarray.length;
+        String output = wordarray[index -1];
+        System.out.println(output);
+        return output;
+
     }
 
     /**
@@ -84,8 +97,11 @@ public class StringUtilities {
      */
     public static String reverse(String stringToReverse){
         String output = "";
-        for (char letter: stringToReverse.toCharArray()){
-            output += (char)(letter);
+        char[] array = stringToReverse.toCharArray();
+        int i = 0;
+        for (char letter: array){
+            output += (char)(array[array.length - 1 - i]);
+            i++;
         }
         return output;
     }
